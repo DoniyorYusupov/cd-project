@@ -10,10 +10,8 @@
 
 class TrafficLight
 {
-private:
-    bool detected;
 public:
-    TrafficLight();
     bool detectLight(cv::Mat inputImage);
+    bool detectZebra(cv::Mat inputImage);
 };
 #endif

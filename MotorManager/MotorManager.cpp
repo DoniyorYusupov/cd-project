@@ -127,16 +127,30 @@ void MotorManager::stop()
 
 }*/
 
-void MotorManager::move(bool isLeft, bool isRight, bool redDetected, bool isUltrasonic)
+void MotorManager::move(bool isLeft, bool isRight, bool redDetected, bool isStopDetected, bool isPedestrianDetected, bool isUltrasonic)
 {
+//    if (isStopDetected) {
+//        stop();
+//        delay(5000);
+//        goRight(100);
+//    }
+//    if (isPedestrianDetected) {
+//        mSpeed = mSpeed / 2;
+//        goForward(100);
+//        goRight(100);
+//        mSpeed = mSpeed * 2;
+//    }
     if (redDetected || isUltrasonic) {
-        std::cout << "stop" << std::endl;
+//        std::cout << "stop" << std::endl;
         stop();
-    } else if (isLeft) {
-        std::cout << "go right" << std::endl;
+    } else if (isLeft && isRight) {
+        goForward(100);
+    }
+    else if (isLeft) {
+//        std::cout << "go right" << std::endl;
         goRight(180);
     } else if (isRight) {
-        std::cout << "go left" << std::endl;
+//        std::cout << "go left" << std::endl;
         goLeft(180);
     } else {
         goForward(20);

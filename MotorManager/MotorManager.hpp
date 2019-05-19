@@ -23,7 +23,7 @@ public:
     void goRightSmooth(int delay);
     void goLeftSmooth(int delay);
     void stop();
-    void move(bool isLeft, bool isRight, bool redDetected, bool isUltrasonic);
+    void move(bool isLeft, bool isRight, bool redDetected, bool isStopDetected, bool isPedestrianDetected, bool isUltrasonic);
     bool inRange(unsigned low, unsigned high, unsigned x);
     ~MotorManager();
 };
